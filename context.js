@@ -23,7 +23,7 @@ const Context = ({ children }) => {
             setLength(data.data.length)
             setLoading(false)
             setIndex(1);
-        } else {
+        } else if (category !== null) {
             setLoading(true)
             const { data } = await axios.get(getNewsAPI(reset));
             setNews(data.articles);
@@ -32,6 +32,8 @@ const Context = ({ children }) => {
             setLength(data.articles.length)
             setLoading(false)
             setIndex(1);
+        } else {
+            setLoading(false)
         }
     };
 
@@ -47,7 +49,9 @@ const Context = ({ children }) => {
             setLoading(false);
             setActiveindex(0)
             setLength(data.length)
+            setCategory(null)
             setIndex(1);
+
         } catch (error) {
             console.log(error);
             setLoading(false)
@@ -73,7 +77,7 @@ const Context = ({ children }) => {
                 darkTheme,
                 setDarkTheme,
                 fetchNews,
-                loading, category, activeIndex, setActiveindex, length
+                loading, category, activeIndex, setActiveindex, length, source
             }}
         >
             {children}

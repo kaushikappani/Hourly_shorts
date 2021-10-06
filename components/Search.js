@@ -13,7 +13,7 @@ import { Entypo } from "@expo/vector-icons";
 import { NewsContext } from '../context';
 
 const Search = () => {
-    const { news: { articles }, darkTheme } = useContext(NewsContext);
+    const { news: articles, darkTheme } = useContext(NewsContext);
     const [searchResults, setSearchResults] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
     const [currentNews, setCurrentNews] = useState();
@@ -80,7 +80,7 @@ const Search = () => {
                 >
                     <Entypo name="circle-with-cross" size={30} color="white" />
                 </TouchableOpacity>
-                <View style={{ height: "100%", transform: [{ scaleY: -1 }] }}>
+                <View style={{ height: "100%", transform: [{ scaleY: 1 }] }}>
                     <SingleNews item={currentNews} darkTheme={darkTheme} />
                 </View>
             </Modal>

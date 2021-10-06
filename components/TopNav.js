@@ -4,7 +4,7 @@ import { MaterialCommunityIcons, SimpleLineIcons, Ionicons } from "@expo/vector-
 import { NewsContext } from '../context';
 
 function TopNav({ index, setIndex }) {
-    const { fetchNews, darkTheme, setDarkTheme, category } = useContext(NewsContext);
+    const { fetchNews, darkTheme, setDarkTheme, category, source } = useContext(NewsContext);
     console.log(category)
     return (
         <View style={{ ...styles.container, backgroundColor: darkTheme ? "#282C35" : "white" }}>
@@ -24,7 +24,7 @@ function TopNav({ index, setIndex }) {
             </TouchableOpacity>}
             <Text style={{ ...styles.center, color: darkTheme ? "white" : "black" }}>
 
-                {index ? category : "Discover"}
+                {index ? category || source : "Discover"}
             </Text>
             {index ? (
                 <TouchableOpacity
