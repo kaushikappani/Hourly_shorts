@@ -5,7 +5,13 @@ import healthicon from "./assets/icons8-health-50.png"
 import scienceicon from "./assets/icons8-acid-flask-50.png"
 import sportsicon from "./assets/icons8-trophy-60.png"
 import techicon from "./assets/icons8-artificial-intelligence-96.png"
+import newicon from "./assets/icons8-fire-60.png"
 export const categories = [
+    {
+        code: "",
+        pic: newicon,
+        name: "latest",
+    },
     {
         code: "",
         pic: newsicon,

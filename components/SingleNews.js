@@ -12,18 +12,16 @@ const SingleNews = ({ item, index }) => {
             width: windowWidth,
             marginTop: -35
         }}>
-            <Image source={{ uri: item.urlToImage }} style={{ height: "45%", resizeMode: "cover", width: windowWidth }} />
+            <Image source={{ uri: item.urlToImage || item.images }} style={{ height: "45%", resizeMode: "cover", width: windowWidth }} />
             <View style={{ ...styles.description, backgroundColor: darkTheme ? "#282c35" : "white" }}>
 
                 <Text style={{ ...styles.title, color: darkTheme ? "white" : "black" }}>{item.title}</Text>
-                <Text style={{ ...styles.content, color: darkTheme ? "white" : "black" }}>{item.description}</Text>
-                <Text style={{ color: darkTheme ? "white" : "black" }}>
-                    <Text>  {item.publishedAt ?? "unknown"}</Text>
-                </Text>
+                <Text style={{ ...styles.content, color: darkTheme ? "white" : "black" }}>{item.description || item.decription}</Text>
+
                 <ImageBackground
                     blurRadius={30}
                     style={styles.footer}
-                    source={{ uri: item.urlToImage }}
+                    source={{ uri: item.urlToImage || item.images }}
                 >
                     <TouchableOpacity onPress={() => Linking.openURL(item.url)}>
                         <Text style={{ fontSize: 15, color: "white" }}>
