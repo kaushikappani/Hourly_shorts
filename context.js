@@ -21,8 +21,9 @@ const Context = ({ children }) => {
             setCategory(reset)
             setActiveindex(0)
             setLength(data.data.length)
-            setLoading(false)
             setIndex(1);
+            setLoading(false)
+
         } else if (category !== null) {
             setLoading(true)
             const { data } = await axios.get(getNewsAPI(reset));

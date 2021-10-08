@@ -37,7 +37,7 @@ function TopNav({ index, setIndex }) {
                 </TouchableOpacity>
             ) : (
                 <TouchableOpacity
-                    style={styles.left}
+                    style={styles.right}
                     onPress={() => setIndex(index === 0 ? 1 : 0)}>
                     <Text style={{ ...styles.text, color: darkTheme ? "lightgray" : "black" }}>News</Text>
                     <SimpleLineIcons name="arrow-right" size={15} color="#007FFF" />
@@ -68,15 +68,18 @@ const styles = StyleSheet.create({
     left: {
         flexDirection: "row",
         alignItems: "center",
-        width: 80,
+        width: 73,
         justifyContent: "space-between",
     },
     text: {
         fontSize: 16,
+        marginRight: 3
     },
     right: {
-        width: 80,
-        alignItems: "flex-end",
+        flexDirection: "row",
+        alignItems: "center",
+        width: 55,
+        justifyContent: "flex-end",
     },
 });
 

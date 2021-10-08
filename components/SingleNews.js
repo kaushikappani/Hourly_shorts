@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, ImageBackground, Linking } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TouchableOpacity, ImageBackground, Linking } from 'react-native'
 import { NewsContext } from '../context';
-import Loading from './Loading';
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 const SingleNews = ({ item, index }) => {
@@ -17,7 +16,7 @@ const SingleNews = ({ item, index }) => {
             <View style={{ ...styles.description, backgroundColor: darkTheme ? "#282c35" : "white" }}>
 
                 <Text style={{ ...styles.title, color: darkTheme ? "white" : "black" }}>{item.title}</Text>
-                <Text style={{ ...styles.content, color: darkTheme ? "white" : "black" }}>{item.description || item.decription}</Text>
+                <ScrollView><Text style={{ ...styles.content, color: darkTheme ? "white" : "black" }}>{item.description || item.decription}</Text></ScrollView>
 
 
             </View>
@@ -53,11 +52,11 @@ const styles = StyleSheet.create({
     footer: {
         height: 60,
         width: windowWidth,
-        position: "absolute",
-        bottom: 0,
+        position: "relative",
         backgroundColor: "#d7be69",
         justifyContent: "center",
         paddingHorizontal: 20,
+        marginBottom: 0
     },
 });
 
